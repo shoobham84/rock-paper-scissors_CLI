@@ -3,18 +3,10 @@ function getComputerChoice(min, max) {
     const maxFloored = Math.floor(max);
     let rand_num = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
     switch (rand_num) {
-        case 0:
-            return 'rock';
-            break;
-        case 1:
-            return 'paper';
-            break;
-        case 2:
-            return 'scissor';
-            break;
-        default:
-            return 'invalid';
-            break;
+        case 0: return 'rock';
+        case 1: return 'paper';
+        case 2: return 'scissor';
+        default: return 'invalid';
     }
 }
 
@@ -22,9 +14,6 @@ function getHumanChoice() {
     let ans = prompt("Rock, Paper or Scissors?: ");
     return ans.toLowerCase();
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice()  // Rock = 0, Paper = 1, Scissors = 2
 
 let humanScore = 0;
 let computerScore = 0;
@@ -46,3 +35,18 @@ function playRound(humanSelection, computerSelection) {
         computerScore++;
     }
 }
+
+
+function playGame() {
+    for (let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice(0, 3)  // Rock = 0, Paper = 1, Scissors = 2
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore === computerScore) console.log("It's a Tie!")
+    else if (humanScore > computerScore) console.log("Human Wins!");
+    else console.log("Computer Wins!");
+}
+
+playGame();
