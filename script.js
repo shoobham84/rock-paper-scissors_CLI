@@ -1,7 +1,21 @@
 function getComputerChoice(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    let rand_num = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    switch (rand_num) {
+        case 0:
+            return 'rock';
+            break;
+        case 1:
+            return 'paper';
+            break;
+        case 2:
+            return 'scissor';
+            break;
+        default:
+            return 'invalid';
+            break;
+    }
 }
 
 function getHumanChoice() {
@@ -9,6 +23,12 @@ function getHumanChoice() {
     return ans.toLowerCase();
 }
 
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice()  // Rock = 0, Paper = 1, Scissors = 2
+
 let humanScore = 0;
 let computerScore = 0;
 
+function playRound(humanSelection, computerSelection) {
+    if (humanSelection === 'rock' && computerSelection == 1)
+}
