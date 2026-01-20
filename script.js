@@ -49,4 +49,4 @@ function playGame() {
     else console.log("Computer Wins!");
 }
 
-playGame();
+// playGame();
