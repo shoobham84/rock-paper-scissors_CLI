@@ -5,6 +5,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .header {
@@ -42,16 +43,26 @@ i {
     justify-content: space-evenly;
     gap: 32px;
     padding: 20px;
+    flex: 1;
 }
 
 .card {
-  border: 1px solid black;
-  box-shadow: 2px 4px 16px rgba(0,0,0,.06);
-  border-radius: 4px;
-  padding: 10px;
-  flex-basis: 300px;
-  transition: all 0.3s ease;
-  font-size: 200px;
+    /* --- New Button Reset Styles --- */
+    background: rgb(35, 35, 4);     /* Removes default button gray */
+    cursor: pointer;         /* Adds the hand cursor */
+    appearance: none;        /* Removes default OS button styling */
+    /* ------------------------------- */
+
+    border: 1px solid black;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.06);
+    display: flex;
+    border-radius: 4px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    font-size: 200px;
+    justify-content: center;
+    align-items: center;
+    max-height: 250px;
 }
 
 .card:hover {
