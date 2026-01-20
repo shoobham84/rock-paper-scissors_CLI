@@ -50,9 +50,11 @@ i {
   border-radius: 4px;
   padding: 10px;
   flex-basis: 300px;
-  transition: background 0.5s;
+  transition: all 0.3s ease;
+  font-size: 200px;
 }
 
 .card:hover {
     box-shadow: 4px 4px 16px rgba(21, 3, 85, 0.3);
+    transform: translateY(-2.75px) scale(1.05);
 }
