@@ -16,6 +16,23 @@ function getComputerChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+const WINNING_SCORE = 5;
+
+function endgame() {
+    disableButtons(true);
+    resultsContainer.insertBefore(resetButton, roundDeclaration);
+}
+
+function checkWinner() {
+    if (humanScore == WINNING_SCORE) {
+        roundDeclaration.textContent = "GAME OVER! You Win this game!";
+        endgame();
+    }
+    else if (computerScore == WINNING_SCORE) {
+        roundDeclaration.textContent = "GAME OVER! You Lose this game!";
+        endgame();
+    }
+}
 
 function playRound(humanSelection, computerSelection) {
     if (humanSelection === computerSelection) {
@@ -33,8 +50,8 @@ function playRound(humanSelection, computerSelection) {
         roundDeclaration.textContent = "You lose! " + computerSelection + " beats " + humanSelection + "!";
         computerScore++;
     }
-    
     scoreDiv.innerHTML = `Computer - ${computerScore} <br> Human - ${humanScore}`;
+    checkWinner();
 }
 
 function playGame(humanSelection) {
@@ -43,10 +60,32 @@ function playGame(humanSelection) {
     console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 }
 
+function disableButtons(isDisabled) {
+    buttons.forEach(btn => {
+        btn.disabled = isDisabled;
+        btn.style.opacity = isDisabled ? "0.5" : "1";
+        btn.style.cursor = isDisabled ? "not-allowed" : "pointer";
+    });
+
+}
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    scoreDiv.innerHTML = `Computer - ${computerScore} <br> Human - ${humanScore}`;
+    roundDeclaration.textContent = "";
+    resetButton.remove();
+    disableButtons(false);
+}
+
+const resetButton = document.createElement("button");
+resetButton.classList.add("reset-button");
+resetButton.textContent = "Reset";
+
 rock.addEventListener("click", () => playGame('rock'));
 paper.addEventListener("click", () => playGame('paper'));
 scissors.addEventListener("click", () => playGame('scissors'))
-
+resetButton.addEventListener("click", resetGame);
 
 
 
