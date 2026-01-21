@@ -72,12 +72,32 @@ i {
 }
 
 .card:active {
-    /* Reset the lift effect and shrink slightly to simulate pressure */
     transform: translateY(0) scale(0.98);
-    
-    /* Reduce shadow size to make it look closer to the background */
     box-shadow: 1px 2px 4px rgba(0,0,0,.1);
-    
-    /* Optional: Quick color change to confirm the click */
     background-color: #f0f0f0; 
+}
+
+.results {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-end; 
+    padding: 20px 40px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #150355; 
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);    
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #ddddbc;
+    border: 2px solid #150355;
+    border-radius: 4px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
 }
