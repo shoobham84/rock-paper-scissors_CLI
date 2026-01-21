@@ -3,6 +3,7 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const resultsContainer = document.querySelector(".results");
 const scoreDiv = document.querySelector(".score");
+const button = [rock, paper, scissors];
 
 const roundDeclaration = document.createElement("div");
 roundDeclaration.classList.add("round-declaration");
@@ -61,12 +62,13 @@ function playGame(humanSelection) {
 }
 
 function disableButtons(isDisabled) {
-    buttons.forEach(btn => {
-        btn.disabled = isDisabled;
-        btn.style.opacity = isDisabled ? "0.5" : "1";
-        btn.style.cursor = isDisabled ? "not-allowed" : "pointer";
+    button.forEach(btn => {
+        if (btn) {
+            btn.disabled = isDisabled;
+            btn.style.opacity = isDisabled ? "0.5" : "1";
+            btn.style.cursor = isDisabled ? "not-allowed" : "pointer";
+        }
     });
-
 }
 
 function resetGame() {
